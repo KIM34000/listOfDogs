@@ -1,4 +1,5 @@
 <h1>List of Dogs</h1>
+<app-sort (toggleSort)="toggleSort()"></app-sort>
 <div class="dog-container">
   <div *ngFor="let dog of dogs" class="dog-item">
     <div *ngIf="!dog.editing">
@@ -14,3 +15,4 @@
     </div>
   </div>
 </div>
+

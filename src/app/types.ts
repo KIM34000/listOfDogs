@@ -3,4 +3,5 @@ export interface Dog {
     name: string;
     img: string;
     editing?: boolean;
+
 }

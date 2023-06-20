@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DogService } from '../dog.service';
 import { Dog } from '../types';
+import { SortComponent } from '../sort/sort.component';
 
 @Component({
   selector: 'app-dogs',
@@ -34,4 +35,19 @@ export class DogsComponent {
       this.dogs = this.dogs.filter((d) => d !== dog);
     });
   }
+  sortAscending = true;
+
+sortDogs(): void {
+  if (this.sortAscending) {
+    this.dogs.sort((a, b) => a.name.localeCompare(b.name));
+  } else {
+    this.dogs.sort((a, b) => b.name.localeCompare(a.name));
+  }
+}
+
+toggleSort(): void {
+  this.sortAscending = !this.sortAscending;
+  this.sortDogs();
+}
+
 }
