@@ -30,6 +30,8 @@ export class DogsComponent {
   }
 
   deleteDog(dog: Dog): void {
-    // Implement delete functionality if needed
+    this.dogService.deleteDog(dog.id).subscribe(() => {
+      this.dogs = this.dogs.filter((d) => d !== dog);
+    });
   }
 }
