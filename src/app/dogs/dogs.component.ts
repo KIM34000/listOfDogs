@@ -8,10 +8,9 @@ import { Dog } from '../types';
   styleUrls: ['./dogs.component.css']
 })
 export class DogsComponent {
-  dogs: Dog[] = []
+  dogs: Dog[] = [];
 
-  constructor(private dogService: DogService) {
-  }
+  constructor(private dogService: DogService) {}
 
   ngOnInit(): void {
     this.getDogs();
@@ -21,9 +20,16 @@ export class DogsComponent {
     this.dogService.getDogs().subscribe(dogs => this.dogs = dogs);
   }
 
-  updateDog(dog: Dog): void {
+  editDog(dog: Dog): void {
+    dog.editing = true;
+  }
+
+  saveDog(dog: Dog): void {
+    dog.editing = false;
+    this.dogService.updateDog(dog).subscribe();
   }
 
   deleteDog(dog: Dog): void {
+    // Implement delete functionality if needed
   }
 }

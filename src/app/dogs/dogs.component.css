@@ -9,6 +9,6 @@
 
 .dog-item {
   flex: 0 0 auto;
-  width: 200px;
+  /* width: 200px; */
   margin: 10px;
 }

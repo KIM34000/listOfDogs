@@ -1,7 +1,14 @@
 <h1>List of Dogs</h1>
 <div class="dog-container">
-  <div *ngFor ="let dog of dogs" class="dog-item">
-    <h3>{{dog.name}}</h3>
-    <img class="dog-image" [src] = "dog.img" alt = "{{dog.name}} Image">
+  <div *ngFor="let dog of dogs" class="dog-item">
+    <div *ngIf="!dog.editing">
+      <h3>{{ dog.name }} <button (click)="editDog(dog)">Edit</button></h3>
+      <img class="dog-image" [src]="dog.img" alt="{{ dog.name }} Image">
+
+    </div>
+    <div *ngIf="dog.editing">
+      <input [(ngModel)]="dog.name" placeholder="New Name">
+      <button (click)="saveDog(dog)">Save</button>
+    </div>
   </div>
 </div>
